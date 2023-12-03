@@ -1,74 +1,100 @@
-type Image = {
+import { type } from "os";
+
+type Media = {
   key: string;
   url: string;
 };
-type Person = {
+
+type User = {
   firstName: string;
   lastName: string;
-  image?: Image;
+  gender: 'male' | 'female';
+  image?: Media;
   _id: string;
+  location: Location;
   createdAt: string;
+  isDeleted?: boolean;
+  deletedAt?: string;
+  rating?: number;
+  email: string;
+  phone: string;
+  pets?: Pet[];
+  bio?: string;
 };
 
-type Crew = {
-  firstName: string;
-  lastName: string;
-  _id?: string;
-  userType: string;
-  image?: Image;
+type Breed = {
+  _id: string;
+  origin: string;
+  name: string;
+  image?: Media;
+  description: string;
+  pet?: Pet;
+  relatedBreeds?: Breed[];
 };
 
-type Genre = {
+export type Pet = {
+  _id: string;
+  name: string,
+  description: string,
+  gender: 'male' | 'female',
+  image: Media,
+  breed: Breed,
+  category: Category,
+  vaccinationStatus: 'Vaccinated' | 'Not Vaccinated' | 'Not Applicable',
+  adoptionStatus?: 'Available' | 'Pending Adoption' | 'Adopted',
+  isSpayedOrNeutered: boolean,
+  colors: string[],
+  content?: Media[] = [],
+  owner: User;
+  price?: number = 0;
+  createdAt: string;
+  updatedAt: string;
+  location: Location;
+  tags?: string[] = [];
+  size: 'small' | 'medium' | 'large';
+  age: number;
+  personality: Personality[];
+  condition: Condition;
+};
+
+type Condition = 'healthy' | 'sick' | 'wounded' | 'injured' | 'unknown' ;
+
+type Personality = 'friendly' | 'energetic' | 'calm' | 'aggressive' | 'playful';
+
+type Category = {
   _id: string;
   name: string;
   description: string;
-  popularity: number;
-  averageRating: number;
-  parentGenre?: string;
-  relatedGenres?: string[];
+  image?: Media;
 };
 
-type User = Person & {
-  email: string;
-  userType: string;
-};
-
-export type Project = {
-  runtime: number;
-  productionDetails: any[];
-  title: string,
-  description: string,
-  image?: {
-    key: string,
-    url: string,
-  },
-  genres: Genre[],
-  writers: Person[],
-  cast: Person[],
-  directors: Person[],
-  languages: string[],
-  quality: string,
-  releaseDate: string,
-  synopsis: string,
-  needsFunding: boolean,
-  content: [{
-    key: string;
-    url: string;
-  }];
-  creator: User;
-  rating: number;
-  awards: string[];
-  status: "draft" | "submitted" | "active" | "acquired";
-  acquirer?: User;
-  technicalDetails: {
-    label: string;
-    value: string;
-  }[];
-
-  createdAt: string;
-  updatedAt: string;
+type City = {
   _id: string;
-};
+  name: string;
+}
+
+type State = {
+  _id: string;
+  name: string;
+  cities: City[];
+}
+
+type Country = {
+  _id: string;
+  name: string;
+  states: State[]
+}
+
+type Location = {
+  city: City,
+  state: State,
+  country: Country,
+  address?: string,
+  zip?: string,
+  area: string,
+  longitude?: number,
+  latitude?: number,
+}
 
 export type Negotitaion = {
   _id: string;

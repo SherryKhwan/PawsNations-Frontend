@@ -1,7 +1,7 @@
 "use client";
 
 import moment from "moment";
-import { Project } from "@/types/data";
+import { Pet } from "@/types/data";
 import { CalendarIcon, ClockIcon, StarIcon } from "@heroicons/react/24/outline";
 import { Button, Card, CardBody, Chip, Image } from "@nextui-org/react";
 import Link from "next/link";
@@ -11,10 +11,10 @@ interface Props {
   width?: string;
   isOwnProject: boolean;
   isOngoing: boolean;
-  project: Project;
+  pet: Pet;
 }
 
-const MovieCard = ({ width, isOwnProject, isOngoing, project }: Props) => {
+const PetCard = ({ width, isOwnProject, isOngoing, pet }: Props) => {
   return (
     <Card
       isBlurred
@@ -29,40 +29,53 @@ const MovieCard = ({ width, isOwnProject, isOngoing, project }: Props) => {
               className="object-cover"
               height={200}
               shadow="md"
-              src={project.image?.url || "/images/default_poster.png"}
+              src={pet.image?.url || "/images/default_poster.png"}
               width="100%"
             />
           </div>
-          {(!isOngoing && (
+          {(true && (
             <div className="flex flex-col col-span-6 md:col-span-8">
-              <p className="uppercase font-bold">{project.title}</p>
-              {project.directors?.length > 0 && (
+              <p className="uppercase text-lg font-bold">{pet.name}</p>
+              <p className="text-xl font-bold">Rs. {pet.price}</p>
+              <p>
+                Category:{" "}
+                <span className="opacity-60 mt-3">
+                  {pet.category.name}
+                </span>
+              </p>
+              <p>
+                Breed:{" "}
+                <span className="opacity-60 mt-3">
+                  {pet.breed.name}
+                </span>
+              </p>
+              {pet.colors?.length > 0 && (
                 <p>
-                  Director{" "}
+                  Colors:{" "}
                   <span className="opacity-60 mt-3">
-                    {project.directors
+                    {pet.colors
                       ?.map(
-                        (director) =>
-                          director.firstName + " " + director.lastName
+                        (color) =>
+                          color
                       )
                       .join(", ")}
                   </span>
                 </p>
               )}
-              {project.writers?.length > 0 && (
+              {pet.personality?.length > 0 && (
                 <p>
-                  Writer
+                  Personality:
                   <span className="opacity-60 ms-2 mt-3">
-                    {project.writers
-                      .map((writer) => writer.firstName + " " + writer.lastName)
+                    {pet.personality
+                      .map((personality) => personality)
                       .join(", ")}
                   </span>
                 </p>
               )}
-              {(project.cast?.length > 0 && (
+              {/* {(pet.cast?.length > 0 && (
                 <div className="mt-4">
                   <div className="flex flex-wrap mt-3 gap-3">
-                    {project.cast.map((cast) => (
+                    {pet.cast.map((cast) => (
                       <Chip key={cast._id}>
                         {cast.firstName + " " + cast.lastName}
                       </Chip>
@@ -71,10 +84,10 @@ const MovieCard = ({ width, isOwnProject, isOngoing, project }: Props) => {
                 </div>
               )) ||
                 null}
-              {(project.genres?.length > 0 && (
+              {(pet.genres?.length > 0 && (
                 <div className="mt-4">
                   <div className="flex flex-wrap mt-3 gap-3">
-                    {project.genres?.map((genre) => (
+                    {pet.genres?.map((genre) => (
                       <Chip key={genre.name} variant="bordered">
                         {genre.name}
                       </Chip>
@@ -82,9 +95,10 @@ const MovieCard = ({ width, isOwnProject, isOngoing, project }: Props) => {
                   </div>
                 </div>
               )) ||
-                null}
+                null} */}
               <div className="mt-4">
-                {!isOwnProject && <p>{project.description}</p>}
+                <p className="font-bold">Description:</p>
+                {!isOwnProject && <p>{pet.description}</p>}
               </div>
               <div className="mt-4 flex gap-3 flex-wrap">
                 <Chip
@@ -94,7 +108,7 @@ const MovieCard = ({ width, isOwnProject, isOngoing, project }: Props) => {
                     <StarIcon color="" className="w-4 h-4 text-[#ffd700]" />
                   }
                 >
-                  {project.rating}
+                  {pet.tags}
                 </Chip>
                 <Chip
                   color="primary"
@@ -103,7 +117,7 @@ const MovieCard = ({ width, isOwnProject, isOngoing, project }: Props) => {
                     <CalendarIcon color="" className="w-4 h-4 text-[#ffd700]" />
                   }
                 >
-                  {moment(project.releaseDate).format("DD/MM/YYYY")}
+                  {moment(pet.createdAt).format("DD/MM/YYYY")}
                 </Chip>
                 <Chip
                   color="primary"
@@ -112,47 +126,47 @@ const MovieCard = ({ width, isOwnProject, isOngoing, project }: Props) => {
                     <ClockIcon color="" className="w-4 h-4 text-[#ffd700]" />
                   }
                 >
-                  {Math.floor(project.runtime / 60) +
+                  {/* {Math.floor(pet.runtime / 60) +
                     "hr " +
-                    (project.runtime % 60)}
+                    (pet.runtime % 60)} */}
                   min
                 </Chip>
               </div>
               {!isOwnProject && (
                 <div className="mt-4 flex gap-3 flex-wrap">
-                  {project.languages.map((language) => (
+                  {/* {pet.languages.map((language) => (
                     <Chip key={language} radius="sm" color="danger">
                       {language}
                     </Chip>
-                  ))}
+                  ))} */}
                 </div>
               )}
             </div>
           )) || (
-            <div className="flex flex-col gap-2 col-span-6 md:col-span-8">
-              <p>
-                Status: <span className="opacity-50">{project.status}</span>
-              </p>
-              <p>
-                Filming Deadline: <span className="opacity-50">2/09/2024</span>
-              </p>
-              <p>
-                Release date: <span className="opacity-50">2/12/2024</span>
-              </p>
-              <p>
-                Top Collaborators:
-                <span className="opacity-50 mt-4">
-                  Calvin Philips, Lucas Joe, Kyle Peters
-                </span>
-              </p>
-              <Link href={`/projects/${project._id}`}>
-                <Button color="primary">Go to Project</Button>
-              </Link>
-            </div>
-          )}
+              <div className="flex flex-col gap-2 col-span-6 md:col-span-8">
+                <p>
+                  Status: <span className="opacity-50">{pet.adoptionStatus}</span>
+                </p>
+                <p>
+                  Filming Deadline: <span className="opacity-50">2/09/2024</span>
+                </p>
+                <p>
+                  Release date: <span className="opacity-50">2/12/2024</span>
+                </p>
+                <p>
+                  Top Collaborators:
+                  <span className="opacity-50 mt-4">
+                    Calvin Philips, Lucas Joe, Kyle Peters
+                  </span>
+                </p>
+                <Link href={`/pets/${pet._id}`}>
+                  <Button color="primary">Go to Project</Button>
+                </Link>
+              </div>
+            )}
         </div>
       </CardBody>
     </Card>
   );
 };
-export default MovieCard;
+export default PetCard;

@@ -1,6 +1,6 @@
 import React from "react";
 import { events } from "../lib/events";
-import MovieCard from "./movieCard";
+import MovieCard from "./PetCard";
 import Link from "next/link";
 import Event from "./Event";
 

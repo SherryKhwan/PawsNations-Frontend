@@ -50,7 +50,7 @@ const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        {menuItems(user?._id, user?.userType).map((item, index) => (
+        {menuItems(user?._id, 'scout').map((item, index) => (
           <NavbarItem isActive key={`${item.title}-${index}`}>
             <Link color="foreground" href={item.link}>
               {item.title}
@@ -109,7 +109,7 @@ const Navbar = () => {
                   <Link href="/profile">Profile</Link>
                 </DropdownItem>
                 <DropdownItem key="dashboard">
-                  <Link href={`/dashboard/${user.userType}/${user._id}`}>
+                  <Link href={`/dashboard/${'scout'}/${user._id}`}>
                     Dashboard
                   </Link>
                 </DropdownItem>

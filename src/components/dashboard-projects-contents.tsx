@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MovieCard from "./movieCard";
+import MovieCard from "./PetCard";
 import Link from "next/link";
 import { getProjectsByFilmmakerID } from "@/lib/projects";
 import { useSidebarContext } from "./dashboard-layout/layout-context";

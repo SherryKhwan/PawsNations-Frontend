@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getProjectsByFilmmakerID } from "../lib/projects";
-import MovieCard from "./movieCard";
+import MovieCard from "./PetCard";
 import Link from "next/link";
 import { useSidebarContext } from "./dashboard-layout/layout-context";
 import { Pagination } from "@nextui-org/react";
