@@ -12,19 +12,19 @@ import { PricePlan } from "@/types/data";
 import Newsletter from "@/components/newsletter";
 const features = [
   {
-    title: "Streamline Project Negotitations",
+    title: "Different Categories to choose from",
     description:
-      "Effortlessly negotiate film projects and collaborate with ease on YFilm's platform. Connect with filmmakers and scouts to bring your creative vision to life.",
+      "PawsNations involves categorizing pets based on species like cats, dogs, goats, cows, horses, fish, chicken, parrots, ostriches, sheep etc, breeds, and characteristics, facilitating streamlined searches for potential buyers. It also extends to categorizing pet care services, such as grooming, training, and boarding, enabling users to find and select services to their specific needs",
   },
   {
-    title: "Creative collaboration",
+    title: "PawsNations Community & Discussion Forum",
     description:
-      "YFilm fosters a growing community of filmmakers and scouts, providing a platform for creative collaboration and the exchange of ideas. Join the community and unlock new opportunities for your films.",
+      "PawsNations provides a dedicated space for users, pet enthusiasts, and professionals to engage in discussions, share experiences, and seek advice related to various aspects of pet ownership",
   },
   {
-    title: "Growing Community",
+    title: "Everything you need for your pet is here",
     description:
-      "Join a vibrant community of filmmakers and scouts on Yfilm. Connect network, and collaborate with like minded like minded professionals to expand your creative horizon",
+      "PawsNations incorporates a sophisticated pet food management system that recommends dietary preferences based on individual pet needs. It also encompasses a user-friendly interface for monitoring and enhancing pet care services, including grooming, genetics information, training, and boarding.",
   },
 ];
 
@@ -125,36 +125,35 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row-reverse items-center gap-10">
-          <div className="md:w-1/2 h-[70vh] relative">
-            <Image
-              fill
-              alt="NextUI hero Image with delay"
-              src="/images/landing-hero.jpg"
-              style={{ objectFit: "cover", objectPosition: "center" }}
-            />
-          </div>
-          <div className="md:w-1/2 md:pr-5">
-            <h2 className="font-bold text-2xl mb-4 leading-normal">
-              Streamline film project negotitations and foster creative
-              collboration with YFilm
-            </h2>
-            <p>
-              YFilm provides filmmakers and scouts with a pioneering platform
-              that simplifies the process of negotiating film projects and
-              encouragesa creative collaboration. With our innovative features
-              and user friendly interface, you can easily connect with industry
-              professionals, showcase your work, and
-            </p>
-          </div>
-        </div>
+        <Divider />
 
         <div className="flex flex-col md:flex-row-reverse items-center gap-10">
           <div className="md:w-1/2 h-[70vh] relative">
             <Image
               fill
               alt="NextUI hero Image with delay"
-              src="/images/landing-hero.jpg"
+              src="/images/parrots.jpg"
+              style={{ objectFit: "cover", objectPosition: "center" }}
+            />
+          </div>
+          <div className="md:w-1/2 md:pr-5">
+            <h2 className="font-bold text-2xl mb-4 leading-normal">
+              Buy, sell or adapt pets in PawsNations
+            </h2>
+            <p>
+              PawsNations' main features include a streamlined platform for the responsible sale and purchase of pets, offering users a secure and transparent marketplace to connect with reputable breeders, sellers or shelter providers.
+            </p>
+          </div>
+        D</div>
+
+        <Divider />
+
+        <div className="flex flex-col md:flex-row-reverse items-center gap-10">
+          <div className="md:w-1/2 h-[70vh] relative">
+            <Image
+              fill
+              alt="NextUI hero Image with delay"
+              src="/images/girls-with-dogs.jpg"
               style={{ objectFit: "cover", objectPosition: "center" }}
             />
           </div>
@@ -173,10 +172,10 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        D</div>
 
         {/* features */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+        {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
           {learnMoreData.map((data, idx) => (
             <div key={idx}>
               <data.Icon className="h-10 w-10" />
@@ -196,12 +195,12 @@ export default function Home() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
-        <Divider />
+        {/* <Divider /> */}
         {/* featured */}
         <div>
-          <div className="flex flex-wrap gap-5 justify-center md:justify-between">
+          {/* <div className="flex flex-wrap gap-5 justify-center md:justify-between">
             <h3 className="w-full md:max-w-sm">
               Featured by renowned filmmakers and industry-leading scouts
             </h3>
@@ -211,10 +210,10 @@ export default function Home() {
                 <div className="mt-4 text-sm">{data.name}</div>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* main feature */}
-          <div className="mt-10 flex flex-col items-center">
+          {/* <div className="mt-10 flex flex-col items-center">
             <h2 className="max-w-lg text-center font-semibold">
               {featureMain.review}
             </h2>
@@ -230,12 +229,12 @@ export default function Home() {
               <div className="font-bold">{featureMain.name}</div>
               <div>{featureMain.designation}</div>
             </div>
-          </div>
+          </div> */}
         </div>
         <Divider />
 
         {/* pricing plans */}
-        <div className="flex flex-col items-center">
+        {/* <div className="flex flex-col items-center">
           <h1 className="text-3xl font-bold">Pricing Plans</h1>
           <h3 className="text-sm font-light mt-4">
             Choose the pricing plan that works best for you
@@ -264,29 +263,27 @@ export default function Home() {
               </Tab>
             )}
           </Tabs>
-        </div>
+        </div> */}
 
         {/* join now */}
         <div className="flex justify-between">
           <div>
             <h1 className="text-2xl font-bold">
-              Join the YFilm Community Today
+              Join the PawNations Community Today
             </h1>
             <h3 className="mt-5 text-xs">
-              Discover new film projects and collaborate with talented
-              filmmakers
+              Discover pets, pet owners, and pet lovers all over Pakistan.
             </h3>
           </div>
           <div className="flex gap-5">
             <Button color="primary">Sign Up</Button>
-            <Button color="primary" variant="ghost">
+            <Button color="primary" href="/how-it-works" variant="ghost">
               Learn More
             </Button>
           </div>
         </div>
 
         <Divider />
-        {/* newsletter */}
         <Newsletter />
       </div>
     </main>

@@ -3,7 +3,7 @@ export const menuItems = (id: string, userType: string) => {
   return [
     { title: "About us", link: "#" },
     { title: "How it works", link: "/how-it-works" },
-    { title: "Projects", link: "/projects" },
+    { title: "Pets", link: "/projects" },
     { title: "Shop", link: "/shop" },
   ];
 };
